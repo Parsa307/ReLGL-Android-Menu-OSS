@@ -218,7 +218,7 @@ void *hack_thread(void *) {
     //Check if target lib is loaded
     do {
         sleep(1);
-        g_il2cppELF = ElfScanner::createWithPath(std::string(targetLibName));
+        g_il2cppELF = ElfScanner::createWithBase(std::string(targetLibName));
     } while (!g_il2cppELF.isValid());
 
     //If lib is valid, mark it as loaded
