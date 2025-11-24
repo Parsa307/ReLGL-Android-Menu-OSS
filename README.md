@@ -13,7 +13,7 @@ Bugs might be included so yeah, I would fix them. If i find any!
 Thanks to the following individuals without them The project might have been impossible!
 
 * LGL Mod Menu project
-* [Gamer Black](t.me/GamerBlackZone) in Telegram channel for his Aadil Among Us Copy, and his Watermark.
+* [Gamer Black](https://t.me/GamerBlackZone) in Telegram channel for his Aadil Among Us Copy, and his Watermark.
 * Billionz Gaming (For his string hook)
 * AI (It has been used to speed up the development time to update some stuff. and some answers from Search Engine!) (Might made some of the stuff more buggy, I'll recheck).
 
