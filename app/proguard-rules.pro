@@ -23,4 +23,4 @@
 -keepclassmembers class ** {
    public static void Start (***);
 }
--keep public class com.parsast.modmenu.MainActivity
+-keep public class com.relgl.modmenu.MainActivity

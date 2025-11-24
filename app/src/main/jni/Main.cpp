@@ -493,9 +493,8 @@ jobjectArray GetFeatureList4(JNIEnv *env, jobject context) {
     jobjectArray ret;
 
     const char *features[] = {
-            OBFUSCATE("Category_Social Medias"), //Not counted
-            OBFUSCATE("ButtonLink_Subscribe To Parsast YouTube Channel_https://www.youtube.com/@Parsast"), //Not counted
-            OBFUSCATE("ButtonLink_Subscribe To Fortnite Text To Speech YouTube Channel_https://www.youtube.com/@FortniteTextToSpeech"), //Not counted
+            OBFUSCATE("Category_ReLGL"), //Not counted
+            OBFUSCATE("ButtonLink_ReLGL Project_https://github.com/Parsa307/ReLGL-Android-Menu"), //Not counted
 
     /*
             OBFUSCATE("Category_The Category 4"), //Not counted
@@ -680,7 +679,7 @@ int RegisterMenu(JNIEnv *env) {
             {OBFUSCATE("GetFeatureList4"),  OBFUSCATE("()[Ljava/lang/String;"), reinterpret_cast<void *>(GetFeatureList4)},
     };
 
-    jclass clazz = env->FindClass(OBFUSCATE("com/parsast/modmenu/Menu"));
+    jclass clazz = env->FindClass(OBFUSCATE("com/relgl/modmenu/Menu"));
     if (!clazz)
         return JNI_ERR;
     if (env->RegisterNatives(clazz, methods, sizeof(methods) / sizeof(methods[0])) != 0)
@@ -692,7 +691,7 @@ int RegisterPreferences(JNIEnv *env) {
     JNINativeMethod methods[] = {
             {OBFUSCATE("Changes"), OBFUSCATE("(Landroid/content/Context;ILjava/lang/String;IZLjava/lang/String;)V"), reinterpret_cast<void *>(Changes)},
     };
-    jclass clazz = env->FindClass(OBFUSCATE("com/parsast/modmenu/Preferences"));
+    jclass clazz = env->FindClass(OBFUSCATE("com/relgl/modmenu/Preferences"));
     if (!clazz)
         return JNI_ERR;
     if (env->RegisterNatives(clazz, methods, sizeof(methods) / sizeof(methods[0])) != 0)
@@ -704,7 +703,7 @@ int RegisterMain(JNIEnv *env) {
     JNINativeMethod methods[] = {
             {OBFUSCATE("CheckOverlayPermission"), OBFUSCATE("(Landroid/content/Context;)V"), reinterpret_cast<void *>(CheckOverlayPermission)},
     };
-    jclass clazz = env->FindClass(OBFUSCATE("com/parsast/modmenu/Main"));
+    jclass clazz = env->FindClass(OBFUSCATE("com/relgl/modmenu/Main"));
     if (!clazz)
         return JNI_ERR;
     if (env->RegisterNatives(clazz, methods, sizeof(methods) / sizeof(methods[0])) != 0)

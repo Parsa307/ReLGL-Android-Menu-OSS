@@ -1,4 +1,4 @@
-package com.parsast.modmenu;
+package com.relgl.modmenu;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -103,17 +103,17 @@ public class Menu {
     LinearLayout mExpanded, mods, mods2, mods3, mods4, mSettings, mCollapse;
     LinearLayout.LayoutParams scrlLL;
     WindowManager mWindowManager;
-    WindowManager.LayoutParams vmParams, vmParams2;
+    WindowManager.LayoutParams vmParams;
     ImageView startimage;
     FrameLayout rootFrame;
     ScrollView scrollView;
     boolean stopChecking, overlayRequired;
     Context getContext;
     LinearLayout subLayout;
-    TextView FloatingText;
+
 
     //initialize methods from the native library
-    native void Init(Context context, TextView title, TextView subTitle, TextView t1, TextView t2, TextView t3, TextView t4, TextView FloatingText);
+    native void Init(Context context, TextView title, TextView subTitle, TextView t1, TextView t2, TextView t3, TextView t4);
 
     native String Icon();
 
@@ -147,7 +147,6 @@ public class Menu {
     // Reference: https://www.androidhive.info/2016/11/android-floating-widget-like-facebook-chat-head/
     @SuppressLint({"SetTextI18n", "SuspiciousIndentation", "ClickableViewAccessibility"})
     public Menu(Context context) {
-        Typeface customFont = FontManagement.getTypeface(context);
 
         getContext = context;
         rootFrame = new FrameLayout(context); // Global markup
@@ -208,18 +207,6 @@ public class Menu {
         wView.setAlpha(ICON_ALPHA);
         wView.getSettings().setDatabaseEnabled(true);
         wView.setOnTouchListener(onTouchListener());
-
-        FloatingText = new TextView(context);
-        FloatingText.setTextColor(TEXT_COLOR);
-        FloatingText.setTextSize(17f);
-        FloatingText.setPadding(dp(10), dp(5), dp(10), dp(5));
-        FloatingText.setGravity(Gravity.CENTER);
-        FloatingText.setTypeface(customFont);
-        GradientDrawable FT = new GradientDrawable();
-        FT.setColor(FT_COLOR);
-        FT.setStroke(dp(2), TEXT_COLOR);
-        FT.setCornerRadius(dp(20));
-        FloatingText.setBackground(FT);
 
         //********** Sub Layout **********
         subLayout = new LinearLayout(context);
@@ -401,7 +388,6 @@ public class Menu {
         scrollView = new ScrollView(context);
         scrlLL = new LinearLayout.LayoutParams(MATCH_PARENT, dp(MENU_HEIGHT));
         scrollView.setLayoutParams(scrlLL);
-        FloatingText.setVisibility(Preferences.isWatermarkHidden ? View.GONE : View.VISIBLE);
         scrollView.setBackgroundColor(MENU_FEATURE_BG_COLOR);
         mods = new LinearLayout(context);
         mods.setOrientation(LinearLayout.VERTICAL);
@@ -506,7 +492,7 @@ public class Menu {
         relativeLayout.addView(closeBtn);
         mExpanded.addView(relativeLayout);
 
-        Init(context, title, subTitle, t1, t2, t3, t4, FloatingText);
+        Init(context, title, subTitle, t1, t2, t3, t4);
     }
 
     public void ShowMenu() {
@@ -553,23 +539,12 @@ public class Menu {
         int iparams = Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O ? 2038 : 2002;
         vmParams = new WindowManager.LayoutParams(WRAP_CONTENT, WRAP_CONTENT, iparams, 8, -3);
         //params = new WindowManager.LayoutParams(WindowManager.LayoutParams.LAST_APPLICATION_WINDOW, 8, -3);
-
-
-        int iparams2 = Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O ? 2038 : 2002;
-        vmParams2 = new WindowManager.LayoutParams(WRAP_CONTENT, WRAP_CONTENT, iparams2, 8, -3);
-        //params = new WindowManager.LayoutParams(WindowManager.LayoutParams.LAST_APPLICATION_WINDOW, 8, -3);
-
         vmParams.gravity = 51;
         vmParams.x = POS_X;
         vmParams.y = POS_Y;
 
-        vmParams2.gravity = Gravity.BOTTOM;
-        vmParams2.x = POS_X;
-        vmParams2.y = POS_Y;
-
         mWindowManager = (WindowManager) getContext.getSystemService(Context.WINDOW_SERVICE);
         mWindowManager.addView(rootFrame, vmParams);
-        mWindowManager.addView(FloatingText, vmParams2);
 
         overlayRequired = true;
     }
@@ -588,29 +563,12 @@ public class Menu {
                         WindowManager.LayoutParams.FLAG_SPLIT_TOUCH,
                 PixelFormat.TRANSPARENT
         );
-        vmParams2 = new WindowManager.LayoutParams(
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                POS_X,//initialX
-                POS_Y,//initialy
-                WindowManager.LayoutParams.TYPE_APPLICATION,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
-                        WindowManager.LayoutParams.FLAG_LAYOUT_IN_OVERSCAN |
-                        WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN |
-                        WindowManager.LayoutParams.FLAG_SPLIT_TOUCH,
-                PixelFormat.TRANSPARENT
-        );
         vmParams.gravity = 51;
         vmParams.x = POS_X;
         vmParams.y = POS_Y;
 
-        vmParams2.gravity = Gravity.BOTTOM;
-        vmParams2.x = POS_X;
-        vmParams2.y = POS_Y;
-
         mWindowManager = ((Activity) getContext).getWindowManager();
         mWindowManager.addView(rootFrame, vmParams);
-        mWindowManager.addView(FloatingText, vmParams2);
     }
 
     private View.OnTouchListener onTouchListener() {
@@ -801,10 +759,6 @@ public class Menu {
                     Preferences.with(switchR.getContext()).writeBoolean(-1, bool);
                     if (!bool)
                         Preferences.with(switchR.getContext()).clear(); //Clear perferences if switched off
-                    break;
-                case -3:
-                    Preferences.isWatermarkHidden = bool;
-                    FloatingText.setVisibility(bool ? View.GONE : View.VISIBLE);
                     break;
             }
         });
@@ -1456,9 +1410,6 @@ public class Menu {
     public void onDestroy() {
         if (rootFrame != null) {
             mWindowManager.removeView(rootFrame);
-            if (FloatingText != null) {
-                mWindowManager.removeView(FloatingText);
-            }
         }
     }
 }

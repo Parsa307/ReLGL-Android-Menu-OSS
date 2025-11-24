@@ -39,7 +39,7 @@ void startActivityPermisson(JNIEnv *env, jobject ctx){
 void startService(JNIEnv *env, jobject ctx){
     jclass native_context = env->GetObjectClass(ctx);
     jclass intentClass = env->FindClass(OBFUSCATE("android/content/Intent"));
-    jclass actionString = env->FindClass(OBFUSCATE("com/parsast/modmenu/Launcher"));
+    jclass actionString = env->FindClass(OBFUSCATE("com/relgl/modmenu/Launcher"));
     jmethodID newIntent = env->GetMethodID(intentClass, OBFUSCATE("<init>"), OBFUSCATE("(Landroid/content/Context;Ljava/lang/Class;)V"));
     jobject intent = env->NewObject(intentClass,newIntent,ctx,actionString);
     jmethodID startActivityMethodId = env->GetMethodID(native_context, OBFUSCATE("startService"), OBFUSCATE("(Landroid/content/Intent;)Landroid/content/ComponentName;"));
@@ -79,9 +79,9 @@ void CheckOverlayPermission(JNIEnv *env, jclass, jobject ctx){
     startService(env, ctx);
 }
 
-void Init(JNIEnv *env, jobject, jobject ctx, jobject title, jobject subtitle, jobject t1, jobject t2, jobject t3, jobject t4, jobject FloatingText){
+void Init(JNIEnv *env, jobject, jobject ctx, jobject title, jobject subtitle, jobject t1, jobject t2, jobject t3, jobject t4){
     //Set sub title
-    setText(env, title, OBFUSCATE("<b>Developed by Parsast</b>"));
+    setText(env, title, OBFUSCATE("<b>Developed by ReLGL Team</b>"));
 
     //Set sub title
     setText(env, subtitle, OBFUSCATE("<b>Among Us</b>"));
@@ -92,12 +92,10 @@ void Init(JNIEnv *env, jobject, jobject ctx, jobject title, jobject subtitle, jo
 
     setText(env, t3, OBFUSCATE("Account<br>Mods"));
 
-    setText(env, t4, OBFUSCATE("Social<br>Medias"));
-
-    setText(env, FloatingText, OBFUSCATE("<b>Developed by Parsast</b>"));
+    setText(env, t4, OBFUSCATE("ReLGL"));
 
     //Toast Example
-    Toast(env,ctx,OBFUSCATE("Developed by Parsast"),ToastLength::LENGTH_LONG);
+    Toast(env,ctx,OBFUSCATE("Developed by ReLGL Team"),ToastLength::LENGTH_LONG);
 
     initValid = true;
 }

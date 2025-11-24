@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdk 35
     defaultConfig {
-        namespace "com.parsast.modmenu"
+        namespace "com.relgl.modmenu"
         minSdkVersion 21
         targetSdkVersion 35
         versionCode 1

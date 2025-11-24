@@ -1,4 +1,4 @@
-package com.parsast.modmenu;
+package com.relgl.modmenu;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,7 +9,7 @@ public class Main {
     static {
         // When you change the lib name, change also on Android.mk file
         // Both must have same name
-        System.loadLibrary("Parsast");
+        System.loadLibrary("relgl");
     }
 
     private static native void CheckOverlayPermission(Context context);

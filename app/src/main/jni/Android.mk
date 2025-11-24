@@ -2,7 +2,7 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 # Name of your shared library
-LOCAL_MODULE    := Parsast
+LOCAL_MODULE    := relgl
 
 # Compiler flags
 LOCAL_CFLAGS := -w -s -Wno-error=format-security -fvisibility=hidden -fpermissive -fexceptions

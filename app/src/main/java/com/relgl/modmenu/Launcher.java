@@ -1,4 +1,4 @@
-package com.parsast.modmenu;
+package com.relgl.modmenu;
 
 import android.app.ActivityManager;
 import android.app.Service;

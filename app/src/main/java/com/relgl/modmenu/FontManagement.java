@@ -1,6 +1,6 @@
-package com.parsast.modmenu;
+package com.relgl.modmenu;
 
-import static com.parsast.modmenu.Menu.Font;
+import static com.relgl.modmenu.Menu.Font;
 
 import android.content.Context;
 import android.graphics.Typeface;
