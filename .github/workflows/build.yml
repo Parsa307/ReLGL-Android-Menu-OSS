@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-java@v5
         with:
           distribution: "temurin"
-          java-version: "24"
+          java-version: "25"
           cache: "gradle"
 
       - name: Make gradlew executable
@@ -26,7 +26,6 @@ jobs:
 
       - name: Build
         run: ./gradlew assembleRelease
-
 
       - name: Sign APK
         run: |
