@@ -81,14 +81,14 @@ public class Menu {
     float MENU_CORNER = 4f;
     int ICON_SIZE = 45; //Change both width and height of image
     float ICON_ALPHA = 1f; //Transparent
-    int CategoryBG = Color.parseColor("#ABFF0000");
-    int SeekBarColor = Color.parseColor("#FFFF0000");
-    int SeekBarProgressColor = Color.parseColor("#FFFF0000");
-    int CheckBoxColor = Color.parseColor("#ABFF0000");
-    int RadioColor = Color.parseColor("#ABFF0000");
+    int CategoryBG = Color.parseColor("#FFC0CB");
+    int SeekBarColor = Color.parseColor("#FFC0CB");
+    int SeekBarProgressColor = Color.parseColor("#FFC0CB");
+    int CheckBoxColor = Color.parseColor("#FFC0CB");
+    int RadioColor = Color.parseColor("#FFC0CB");
     String NumberTxtColor = "#FFFFFF";
 
-    int LST_MAB = Color.parseColor("#99FF0000");
+    int LST_MAB = Color.parseColor("#FFC0CB");
     int TAB_STROKE_COLOR = Color.parseColor("#FFFFFF");
     int TAB_TEXT_COLOR = Color.parseColor("#FFFFFF");
     float TAB_TEXT_SIZE = 12.5f;
@@ -724,7 +724,7 @@ public class Menu {
             GD_THUMB.setColor(Color.MAGENTA);
         } else {
             GD_TRACK.setStroke(2, Color.MAGENTA);
-            GD_TRACK.setColor(Color.argb(200, 255, 255, 255));
+            GD_TRACK.setColor(Color.argb(255, 255, 255, 255));
 
             GD_THUMB.setStroke(2, Color.MAGENTA);
             GD_THUMB.setColor(Color.WHITE);
