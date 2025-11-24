@@ -117,8 +117,6 @@ public class Menu {
 
     native String Icon();
 
-    static native String Font();
-
     native String Background();
 
     native String IconWebViewData();
