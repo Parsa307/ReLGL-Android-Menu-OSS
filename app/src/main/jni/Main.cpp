@@ -237,42 +237,42 @@ void *hack_thread(void *) {
     il2cppBase = g_il2cppElf.base();
 
 #ifdef __aarch64__ // arm64-v8a
-    DobbyHook((void *)(il2cppBase + 0x1288ABC), (void *)maximumlightradius, (void **)&old_maximumlightradius);
-    DobbyHook((void *)(il2cppBase + 0x313AA84), (void *)removeallshadows, (void **)&old_removeallshadows);
-    DobbyHook((void *)(il2cppBase + 0x1A26A00), (void *)longkilldistance, (void **)&old_longkilldistance);
-    DobbyHook((void *)(il2cppBase + 0x123F570), (void *)canmoveinvent, (void **)&old_canmoveinvent);
-    DobbyHook((void *)(il2cppBase + 0x1A25E38), (void *)unlimiteddurationforshapeshifter, (void **)&old_unlimiteddurationforshapeshifter);
-    DobbyHook((void *)(il2cppBase + 0x1A25F20), (void *)nocooldownforshapeshifter, (void **)&old_nocooldownforshapeshifter);
-    DobbyHook((void *)(il2cppBase + 0x1A25C68), (void *)unlimitedventdurationforengineers, (void **)&old_unlimitedventdurationforengineers);
-    DobbyHook((void *)(il2cppBase + 0x1A25B80), (void *)noventcooldownforengineers, (void **)&old_noventcooldownforengineers);
-    DobbyHook((void *)(il2cppBase + 0x1A263A8), (void *)unlimiteddurationforphantom, (void **)&old_unlimiteddurationforphantom);
-    DobbyHook((void *)(il2cppBase + 0x1A262C0), (void *)nocooldownforphantom, (void **)&old_nocooldownforphantom);
-    DobbyHook((void *)(il2cppBase + 0x16D2318), (void *)unlockallitems, (void **)&old_unlockallitems);
-    DobbyHook((void *)(il2cppBase + 0x137ADEC), (void *)noads, (void **)&old_noads);
-    DobbyHook((void *)(il2cppBase + 0x188A070), (void *)freechat, (void **)&old_freechat);
-    DobbyHook((void *)(il2cppBase + 0x1A8F1AC), (void *)allowallcharacters, (void **)&old_allowallcharacters);
-    DobbyHook((void *)(il2cppBase + 0x16CE98C), (void *)playerspeed, (void **)&old_playerspeed);
-    DobbyHook((void *)(il2cppBase + 0x16C53A4), (void *)playername, (void **)&old_playername);
-    DobbyHook((void *)(il2cppBase + 0x1935CA4), (void *)playerlevel, (void **)&old_playerlevel);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)maximumlightradius, (void **)&old_maximumlightradius);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)removeallshadows, (void **)&old_removeallshadows);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)longkilldistance, (void **)&old_longkilldistance);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)canmoveinvent, (void **)&old_canmoveinvent);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlimiteddurationforshapeshifter, (void **)&old_unlimiteddurationforshapeshifter);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)nocooldownforshapeshifter, (void **)&old_nocooldownforshapeshifter);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlimitedventdurationforengineers, (void **)&old_unlimitedventdurationforengineers);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)noventcooldownforengineers, (void **)&old_noventcooldownforengineers);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlimiteddurationforphantom, (void **)&old_unlimiteddurationforphantom);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)nocooldownforphantom, (void **)&old_nocooldownforphantom);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlockallitems, (void **)&old_unlockallitems);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)noads, (void **)&old_noads);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)freechat, (void **)&old_freechat);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)allowallcharacters, (void **)&old_allowallcharacters);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)playerspeed, (void **)&old_playerspeed);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)playername, (void **)&old_playername);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)playerlevel, (void **)&old_playerlevel);
 
 #elif defined(__arm__) // armeabi-v7a
-    DobbyHook((void *)(il2cppBase + 0xB691BC), (void *)maximumlightradius, (void **)&old_maximumlightradius);
-    DobbyHook((void *)(il2cppBase + 0x2FC6F30), (void *)removeallshadows, (void **)&old_removeallshadows);
-    DobbyHook((void *)(il2cppBase + 0x147C2E0), (void *)longkilldistance, (void **)&old_longkilldistance);
-    DobbyHook((void *)(il2cppBase + 0xB0EFF0), (void *)canmoveinvent, (void **)&old_canmoveinvent);
-    DobbyHook((void *)(il2cppBase + 0x147B580), (void *)unlimiteddurationforshapeshifter, (void **)&old_unlimiteddurationforshapeshifter);
-    DobbyHook((void *)(il2cppBase + 0x147B688), (void *)nocooldownforshapeshifter, (void **)&old_nocooldownforshapeshifter);
-    DobbyHook((void *)(il2cppBase + 0x147B370), (void *)unlimitedventdurationforengineers, (void **)&old_unlimitedventdurationforengineers);
-    DobbyHook((void *)(il2cppBase + 0x147B268), (void *)noventcooldownforengineers, (void **)&old_noventcooldownforengineers);
-    DobbyHook((void *)(il2cppBase + 0x147BBAC), (void *)unlimiteddurationforphantom, (void **)&old_unlimiteddurationforphantom);
-    DobbyHook((void *)(il2cppBase + 0x147BAA4), (void *)nocooldownforphantom, (void **)&old_nocooldownforphantom);
-    DobbyHook((void *)(il2cppBase + 0x1084514), (void *)unlockallitems, (void **)&old_unlockallitems);
-    DobbyHook((void *)(il2cppBase + 0xC8A728), (void *)noads, (void **)&old_noads);
-    DobbyHook((void *)(il2cppBase + 0x1290988), (void *)freechat, (void **)&old_freechat);
-    DobbyHook((void *)(il2cppBase + 0x1501858), (void *)allowallcharacters, (void **)&old_allowallcharacters);
-    DobbyHook((void *)(il2cppBase + 0x107F65C), (void *)playerspeed, (void **)&old_playerspeed);
-    DobbyHook((void *)(il2cppBase + 0x10735AC), (void *)playername, (void **)&old_playername);
-    DobbyHook((void *)(il2cppBase + 0x1358AD4), (void *)playerlevel, (void **)&old_playerlevel);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)maximumlightradius, (void **)&old_maximumlightradius);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)removeallshadows, (void **)&old_removeallshadows);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)longkilldistance, (void **)&old_longkilldistance);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)canmoveinvent, (void **)&old_canmoveinvent);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlimiteddurationforshapeshifter, (void **)&old_unlimiteddurationforshapeshifter);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)nocooldownforshapeshifter, (void **)&old_nocooldownforshapeshifter);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlimitedventdurationforengineers, (void **)&old_unlimitedventdurationforengineers);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)noventcooldownforengineers, (void **)&old_noventcooldownforengineers);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlimiteddurationforphantom, (void **)&old_unlimiteddurationforphantom);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)nocooldownforphantom, (void **)&old_nocooldownforphantom);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)unlockallitems, (void **)&old_unlockallitems);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)noads, (void **)&old_noads);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)freechat, (void **)&old_freechat);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)allowallcharacters, (void **)&old_allowallcharacters);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)playerspeed, (void **)&old_playerspeed);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)playername, (void **)&old_playername);
+    DobbyHook((void *)(il2cppBase + 0x000000), (void *)playerlevel, (void **)&old_playerlevel);
 #endif
 
     LOGI(OBFUSCATE("Done"));
