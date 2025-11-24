@@ -1,5 +1,3 @@
-bool iconValid = false, settingsValid = false, initValid = false;
-
 //Big letter cause crash
 void setText(JNIEnv *env, jobject obj, const char* text){
     //https://stackoverflow.com/a/33627640/3763113
@@ -18,7 +16,6 @@ void setText(JNIEnv *env, jobject obj, const char* text){
 }
 
 jstring Icon(JNIEnv *env) {
-    iconValid = true;
 
     //Use https://www.base64encode.org/ to encode your image to base64
     return env->NewStringUTF(
@@ -33,7 +30,6 @@ jstring Background(JNIEnv *env) {
 }
 
 jstring IconWebViewData() {
-    iconValid = true;
     //WebView support GIF animation. Upload your image or GIF on imgur.com or other sites
 
     // From internet (Requires android.permission.INTERNET)
@@ -65,8 +61,6 @@ jobjectArray SettingsList(JNIEnv *env) {
     int i;
     for (i = 0; i < Total_Feature; i++)
         env->SetObjectArrayElement(ret, i, env->NewStringUTF(features[i]));
-
-    settingsValid = true;
 
     return (ret);
 }
