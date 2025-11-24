@@ -31,7 +31,7 @@ __BEGIN_DECLS
 // Avoid circular dependencies since this is exposed from <sys/cdefs.h>.
 int __system_property_get(const char* _Nonnull __name, char*  _Nonnull __value);
 int atoi(const char* _Nonnull __s) __attribute_pure__;
-int api_level() {
+int android_get_device_api_level() {
   char value[92] = { 0 };
   if (__system_property_get("ro.build.version.sdk", value) < 1) return -1;
   int api_level = atoi(value);

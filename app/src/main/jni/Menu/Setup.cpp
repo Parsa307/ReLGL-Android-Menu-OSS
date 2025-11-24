@@ -48,7 +48,7 @@ void CheckOverlayPermission(JNIEnv *env, jclass, jobject ctx){
 
     LOGI(AY_OBFUSCATE("Check overlay permission"));
 
-    int sdkVer = api_level();
+    int sdkVer = android_get_device_api_level();
     if (sdkVer >= 23){ //Android 6.0
         jclass Settings = env->FindClass(AY_OBFUSCATE("android/provider/Settings"));
         jmethodID canDraw =env->GetStaticMethodID(Settings, AY_OBFUSCATE("canDrawOverlays"), AY_OBFUSCATE("(Landroid/content/Context;)Z"));
