@@ -23,7 +23,7 @@
 
 //Target lib here
 #define targetLibName OBFUSCATE("libil2cpp.so")
-ElfScanner g_il2cppELF;
+ElfScanner g_il2cppElf;
 uintptr_t il2cppBase;
 
 bool RemoveAllShadows = false, MaximumLightRadius = false, LongKillDistance= false, CanMoveInVent = false, UnlimitedDurationForShapeshifter = false, NoCooldownForShapeshifter = false, UnlimitedVentDurationForEngineers = false, NoVentCooldownForEngineers = false, UnlimitedDurationForPhantom = false, NoCooldownForPhantom = false, UnlockAllItems = false, NoAds = false, FreeChat = false, AllowAllCharacters = false;
@@ -218,11 +218,11 @@ void *hack_thread(void *) {
     //Check if target lib is loaded
     do {
         sleep(1);
-        g_il2cppELF = ElfScanner::createWithAsm(std::string(targetLibName));
-    } while (!g_il2cppELF.isValid());
+        g_il2cppElf = ElfScanner::createWithAsm(std::string(targetLibName));
+    } while (!g_il2cppElf.isValid());
 
     //If lib is valid, mark it as loaded
-    if (g_il2cppELF.isValid()) {
+    if (g_il2cppElf.isValid()) {
         libLoaded = true;
     }
 
@@ -234,7 +234,7 @@ void *hack_thread(void *) {
 
     //DobbyHook((void *)(address + 0x1288ABC), (void *)example, (void **)&old_example);
 
-    il2cppBase = g_il2cppELF.base();
+    il2cppBase = g_il2cppElf.base();
 
 #ifdef __aarch64__ // arm64-v8a
     DobbyHook((void *)(il2cppBase + 0x1288ABC), (void *)maximumlightradius, (void **)&old_maximumlightradius);
