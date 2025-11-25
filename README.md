@@ -5,7 +5,7 @@ Continuing the Legacy of LGLTeam, requires Android Studio Doesn't compile with A
 
 This project is continuing the legacy of LGL Mod Menu!
 
-Is in WIP! Please be patient! Open Issues if any bugs are found.
+Is in WIP! Please be patient! Open Issues if any bugs are found. Before opening any issues, check [Known issues](https://github.com/Parsa307/ReLGL-Android-Menu/issues/2)
 
 # Credits
 Thanks to the following individuals without them The project might have been impossible!
