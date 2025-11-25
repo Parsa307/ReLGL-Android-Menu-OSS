@@ -1,9 +1,7 @@
 # Introduction
 ![GitHub](https://img.shields.io/github/license/Parsa307/ReLGL-Android-Menu?style=flat-square)
 
-Continuing the Legacy of LGLTeam, requires Android Studio Doesn't compile with AIDE! for Mobile Users Please use GitHub Actions!
-
-This project is continuing the legacy of LGL Mod Menu!
+Continuing the Legacy of LGLTeam!
 
 Is in WIP! Please be patient! Open Issues if any bugs are found. Before opening any issues, check [Known issues](https://github.com/Parsa307/ReLGL-Android-Menu/issues/2)
 
