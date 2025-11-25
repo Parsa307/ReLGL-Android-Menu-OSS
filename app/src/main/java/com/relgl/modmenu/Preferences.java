@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 public class Preferences {
     private static SharedPreferences sharedPreferences;
     private static Preferences prefsInstance;
-    public static boolean loadPref, isWatermarkHidden;
+    public static boolean loadPref;
 
     private static final String DEFAULT_STRING_VALUE = "";
     private static final int DEFAULT_INT_VALUE = 0; //-1
@@ -41,9 +41,6 @@ public class Preferences {
         boolean bool = Preferences.with(context).readBoolean(featureNum, bDef);
         if (featureNum == -1) {
             loadPref = bool;
-        }
-        if (featureNum == -3) {
-            isWatermarkHidden = bool;
         }
         if (loadPref || featureNum < 0) {
             bDef = bool;
