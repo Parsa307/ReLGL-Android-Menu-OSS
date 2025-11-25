@@ -501,13 +501,13 @@ public class Menu {
                 //Comment the if-else code out except startService if you want to run the app and test preferences
                 if (Preferences.loadPref && !IsGameLibLoaded() && !stopChecking) {
                     if (!viewLoaded) {
-                        Category(mods, "Save preferences was been enabled. Waiting for game lib to be loaded...\n\nForce load menu may not apply mods instantly. You would need to reactivate them again");
+                        Category(mods, "Save preferences is enabled. Waiting for game lib to be loaded...\n\nForce load menu may not apply mods instantly. You would need to reactivate them again");
                         Button(mods, -100, "Force load menu");
-                        Category(mods2, "Save preferences was been enabled. Waiting for game lib to be loaded...\n\nForce load menu may not apply mods instantly. You would need to reactivate them again");
+                        Category(mods2, "Save preferences is enabled. Waiting for game lib to be loaded...\n\nForce load menu may not apply mods instantly. You would need to reactivate them again");
                         Button(mods2, -100, "Force load menu");
-                        Category(mods3, "Save preferences was been enabled. Waiting for game lib to be loaded...\n\nForce load menu may not apply mods instantly. You would need to reactivate them again");
+                        Category(mods3, "Save preferences is enabled. Waiting for game lib to be loaded...\n\nForce load menu may not apply mods instantly. You would need to reactivate them again");
                         Button(mods3, -100, "Force load menu");
-                        Category(mods4, "Save preferences was been enabled. Waiting for game lib to be loaded...\n\nForce load menu may not apply mods instantly. You would need to reactivate them again");
+                        Category(mods4, "Save preferences is enabled. Waiting for game lib to be loaded...\n\nForce load menu may not apply mods instantly. You would need to reactivate them again");
                         Button(mods4, -100, "Force load menu");
                         viewLoaded = true;
                     }
