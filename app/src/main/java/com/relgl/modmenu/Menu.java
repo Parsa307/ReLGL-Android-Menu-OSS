@@ -712,10 +712,12 @@ public class Menu {
         final GradientDrawable GD_TRACK = new GradientDrawable();
         GD_TRACK.setSize(20, 20);
         GD_TRACK.setCornerRadius(100);
+        GD_TRACK.setShadowLayer(7.0f, 0.0f, 0.0f, Color.BLACK);
 
         final GradientDrawable GD_THUMB = new GradientDrawable();
         GD_THUMB.setSize(50, 50);
         GD_THUMB.setShape(GradientDrawable.OVAL);
+        GD_THUMB.setShadowLayer(7.0f, 0.0f, 0.0f, Color.BLACK);
         boolean isOn = Preferences.loadPrefBool(getContext, featName, featNum, swiOn);
 
         if (isOn) {
