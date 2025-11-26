@@ -731,7 +731,6 @@ public class Menu {
         }
         switchR.setText(featName);
         switchR.setTextColor(TEXT_COLOR);
-        switchR.setShadowLayer(7.0f, 0.0f, 0.0f, Color.BLACK);
         switchR.setPadding(10, 5, 10, 5);
         switchR.setThumbDrawable(GD_THUMB);
         switchR.setTrackDrawable(GD_TRACK);
