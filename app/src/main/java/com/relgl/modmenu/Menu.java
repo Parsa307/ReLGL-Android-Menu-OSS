@@ -226,6 +226,7 @@ public class Menu {
         TextView title = new TextView(context);
         title.setTextColor(TEXT_COLOR);
         title.setTextSize(18.0f);
+        title.setShadowLayer(7.0f, 0.0f, 0.0f, Color.BLACK);
         title.setGravity(Gravity.CENTER);
         RelativeLayout.LayoutParams rl = new RelativeLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT);
         rl.addRule(RelativeLayout.CENTER_HORIZONTAL);
@@ -239,6 +240,7 @@ public class Menu {
         subTitle.setSelected(true);
         subTitle.setTextColor(TEXT_COLOR);
         subTitle.setTextSize(10.0f);
+        subTitle.setShadowLayer(7.0f, 0.0f, 0.0f, Color.BLACK);
         subTitle.setGravity(Gravity.CENTER);
         subTitle.setPadding(0, 0, 0, 5);
 
@@ -1023,7 +1025,6 @@ public class Menu {
             titleText.setTypeface(Typeface.DEFAULT_BOLD);
             titleText.setTextColor(TEXT_COLOR);
             titleText.setTextSize(22f);
-            titleText.setShadowLayer(7.0f, 0.0f, 0.0f, Color.BLACK);
 
             //TextView
             final TextView TextViewNote = new TextView(getContext);
