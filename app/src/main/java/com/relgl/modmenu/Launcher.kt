@@ -1,4 +1,4 @@
-package com.relgl.modmenu;
+/* package com.relgl.modmenu;
 
 import android.app.ActivityManager;
 import android.app.Service;
@@ -70,5 +70,76 @@ public class Launcher extends Service {
     //Override our Start Command so the Service doesnt try to recreate itself when the App is closed
     public int onStartCommand(Intent intent, int i, int i2) {
         return Service.START_NOT_STICKY;
+    }
+} */
+
+package com.relgl.modmenu
+
+import android.app.ActivityManager
+import android.app.Service
+import android.content.Intent
+import android.os.Handler
+import android.os.IBinder
+import android.view.View
+
+class Launcher : Service() {
+
+    private lateinit var menu: Menu
+    private val handler = Handler()
+
+    override fun onCreate() {
+        super.onCreate()
+
+        menu = Menu(this)
+        menu.SetWindowManagerWindowService()
+        menu.ShowMenu()
+
+        // Create repeating handler loop
+        handler.post(object : Runnable {
+            override fun run() {
+                checkVisibility()
+                handler.postDelayed(this, 1000)
+            }
+        })
+    }
+
+    override fun onBind(intent: Intent?): IBinder? {
+        return null
+    }
+
+    // Check if game is not in foreground
+    private fun isNotInGame(): Boolean {
+        val info = ActivityManager.RunningAppProcessInfo()
+        ActivityManager.getMyMemoryState(info)
+        return info.importance != ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND
+    }
+
+    private fun checkVisibility() {
+        if (isNotInGame()) {
+            menu.setVisibility(View.INVISIBLE)
+        } else {
+            menu.setVisibility(View.VISIBLE)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacksAndMessages(null)
+        menu.onDestroy()
+    }
+
+    override fun onTaskRemoved(intent: Intent?) {
+        super.onTaskRemoved(intent)
+        try {
+            Thread.sleep(100)
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        }
+        stopSelf()
+    }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        // Prevent service from restarting after app is closed
+        return START_NOT_STICKY
     }
 }

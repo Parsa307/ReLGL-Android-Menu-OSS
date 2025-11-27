@@ -1,4 +1,4 @@
-package com.relgl.modmenu;
+/* package com.relgl.modmenu;
 
 import android.app.Activity;
 import android.content.Context;
@@ -28,5 +28,38 @@ public class Main {
 
     public static void Start(Context context) {
         CheckOverlayPermission(context);
+    }
+} */
+
+package com.relgl.modmenu
+
+import android.app.Activity
+import android.content.Context
+
+object Main {
+
+    // Load native library
+    init {
+        // When you change the lib name, update Android.mk or CMakeLists as well
+        System.loadLibrary("ReLGL")
+    }
+
+    private external fun CheckOverlayPermission(context: Context)
+
+    @JvmStatic
+    fun StartWithoutPermission(context: Context) {
+        if (context is Activity) {
+            val menu = Menu(context)
+            menu.SetWindowManagerActivity()
+            menu.ShowMenu()
+        } else {
+            // Anything else → require overlay permission
+            CheckOverlayPermission(context)
+        }
+    }
+
+    @JvmStatic
+    fun Start(context: Context) {
+        CheckOverlayPermission(context)
     }
 }
