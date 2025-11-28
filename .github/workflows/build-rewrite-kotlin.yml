@@ -1,0 +1,45 @@
+name: Build Rewrite Kotlin
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Rewrite Kotlin
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          repository: risjsnx/ReLGL-Android-Menu
+          ref: rewrite-kotlin
+
+      - name: Setup JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: "temurin"
+          java-version: "25"
+          cache: "gradle"
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build
+        run: ./gradlew assembleRelease
+
+      - name: Sign APK
+        run: |
+          echo "${{ secrets.KEYSTORE_FILE }}" | base64 -d > keystore.jks
+          $ANDROID_HOME/build-tools/36.0.0/zipalign -c -v 4 app/build/outputs/apk/release/app-release.apk
+          $ANDROID_HOME/build-tools/36.0.0/apksigner sign \
+            --ks keystore.jks \
+            --ks-pass pass:${{ secrets.KEYSTORE_PASSWORD }} \
+            --ks-key-alias ${{ secrets.KEY_ALIAS }} \
+            --key-pass pass:${{ secrets.KEY_PASSWORD }} \
+            app/build/outputs/apk/release/app-release.apk
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v5
+        with:
+          name: app-release.apk
+          path: app/build/outputs/apk/release/app-release.apk
