@@ -15,8 +15,5 @@ Thanks to the following individuals without them The project might have been imp
 * [Billionz Gaming](https://t.me/IMBIllionzGaming) (For his string hook, but it was tweaked by me.)
 * AI (It has been used to speed up the development time to update some stuff. and some answers from Search Engine!) (Might made some of the stuff more buggy, I'll recheck).
 
-# License
-**MIT License**
-
 # Disclaimer
 This project is for Educational Use only.
