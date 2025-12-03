@@ -17,4 +17,4 @@ jobs:
       - name: Push to Codeberg
         run: |
           git remote add codeberg https://oauth2:${{ secrets.CODEBERG_TOKEN }}@codeberg.org/Parsast/ReLGL-Android-Menu.git
-          git push -u origin codeberg
+          git push -u codeberg main
