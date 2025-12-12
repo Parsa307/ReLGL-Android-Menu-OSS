@@ -231,7 +231,7 @@ void *hack_thread(void *) {
 
     il2cppBase = g_il2cppElf.base();
 
-#if defined (__aarch64__) // arm64-v8a
+#if defined(__aarch64__) // arm64-v8a
     DobbyHook((void *)(il2cppBase + 0x000000), (void *)maximumlightradius, (void **)&old_maximumlightradius);
     DobbyHook((void *)(il2cppBase + 0x000000), (void *)removeallshadows, (void **)&old_removeallshadows);
     DobbyHook((void *)(il2cppBase + 0x000000), (void *)longkilldistance, (void **)&old_longkilldistance);
