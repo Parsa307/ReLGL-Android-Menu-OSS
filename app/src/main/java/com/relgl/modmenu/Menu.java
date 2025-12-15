@@ -1074,7 +1074,7 @@ public class Menu {
                         num1 = maxValue;
                     }
                 } catch (NumberFormatException ex) {
-                    num1 = 2147483640;
+                    num1 = Integer.MAX_VALUE;
                 }
 
                 edittextnum.setNum(num1);
