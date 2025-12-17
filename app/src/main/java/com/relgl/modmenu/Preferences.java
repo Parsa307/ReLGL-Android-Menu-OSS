@@ -11,7 +11,7 @@ public class Preferences {
     private static final String DEFAULT_STRING_VALUE = "";
     private static final int DEFAULT_INT_VALUE = 0; //-1
 
-    public static native void Changes(Context con, int fNum, String fName, int i, boolean bool, String str);
+    public static native void Changes(Context con, int fNum, String fName, int value, boolean bool, String str);
 
     public static void changeFeatureInt(Context context, String featureName, int featureNum, int value) {
         Preferences.with(context).writeInt(featureNum, value);
@@ -30,9 +30,9 @@ public class Preferences {
 
     public static int loadPrefInt(Context context, String featureName, int featureNum) {
         if (loadPref) {
-            int i = Preferences.with(context).readInt(featureNum);
+            int value = Preferences.with(context).readInt(featureNum);
             Changes(context, featureNum, featureName, i, false, null);
-            return i;
+            return value;
         }
         return 0;
     }

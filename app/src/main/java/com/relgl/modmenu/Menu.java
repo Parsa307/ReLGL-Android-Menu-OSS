@@ -1381,8 +1381,8 @@ public class Menu {
     private static class EditTextNum {
         int val;
 
-        public void setNum(int i) {
-            val = i;
+        public void setNum(int value) {
+            val = value;
         }
     }
 
